@@ -21,9 +21,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/pokemo', 'PokeaddController@index');
-Route::get('/captured','CaptureController@capt');
+//Route::get('/captured','CaptureController@capt');
 //Route::view('/home', 'pokemo.index');
-Route::resource('/capture', 'capture');
+//Route::resource('/capture', 'capture');
 //Route::post('/captured', 'CaptureController');
 //Route::resource('pokemo', 'PokeaddController');
 // Route::get('/main', 'MainController@index');

@@ -46,7 +46,7 @@
           </div>
         </div>
         <br/>
-        <form method="get" action=""{{url('/captured')}}">
+        <!-- <form method="get" action=""{{url('/captured')}}">
           {{ csrf_field() }}
           <input name="uname" type="hidden" value="{{Auth::user()->name}}">
           <input name="uemail" type="hidden" value="{{Auth::user()->email}}">
@@ -60,7 +60,7 @@
           <input name="pgenus" type="hidden" value="{{$row['genus']}}">
           <input name="pdesc" type="hidden" value="{{$row['description']}}">
          <input type="submit" value="Captured" class="btn btn-success"/>
-       </form>
+       </form> -->
         <br/>
         <br/>
         <br/>
