@@ -20,12 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/pokemo', 'PokeaddController@index');
-//Route::get('/captured','CaptureController@capt');
+//Route::get('/pokemo', 'PokeaddController@index');
+Route::post('/captured','CapturesController@capt');
 //Route::view('/home', 'pokemo.index');
 //Route::resource('/capture', 'capture');
-//Route::post('/captured', 'CaptureController');
-//Route::resource('pokemo', 'PokeaddController');
+//Route::post('/captured', 'CapturesController@capt');
+Route::resource('pokemo', 'PokeaddController');
 // Route::get('/main', 'MainController@index');
 // Route::post('/main/checklogin', 'MainController@checklogin');
 // Route::post('/login', 'MainController@index');
@@ -33,5 +33,5 @@ Route::get('/pokemo', 'PokeaddController@index');
 // Route::get('/main/logout', 'MainController@logout');
 // Route::view('/register','register');
 // Route::post('/store', 'MainController@store');
-//Route::view('/pokemo/create')
+//Route::view('/pokemo/create');
 Route::post('/pokemo/show','PokeaddController@showbyid');

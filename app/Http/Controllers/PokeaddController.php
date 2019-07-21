@@ -28,7 +28,7 @@ class PokeaddController extends Controller
      */
     public function create()
     {
-      //  return view('pokemo.create');
+        return view('pokemo.create');
     }
 
     /**
@@ -64,7 +64,7 @@ class PokeaddController extends Controller
         ]);
 
         $poke->save();
-        return redirect()->route('pokemo.create')->with('success','Pokemon Added to the List');
+        return redirect()->route('pokemo.create')->with('success','Congratulations on finding a new Pokemon! Your Pokemon Added to the List');
     }
 
     /**
@@ -89,7 +89,7 @@ class PokeaddController extends Controller
       if($id<$tc){
         return view('pokemo.show', ['po' => Pokes::findOrFail($id)]);
       } else{
-        return back()->with('error','Invalid Pokemon ID. Please Try again.'.$tc );
+        return back()->with('error','Invalid Pokemon ID. Please Try again. Enter ID within '.$tc );
 
       }
 
