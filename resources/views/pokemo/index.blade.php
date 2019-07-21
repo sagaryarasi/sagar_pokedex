@@ -6,7 +6,7 @@
      <h2 align="center" class="text-uppercase">List of All Pokemons</h2>
 
 
-     <form method="post" action={{ url('pokemo/show')}}>
+     <form method="post" action="{{ url('pokemo/show') }}">
        {{ csrf_field() }}
        <div class="form-group">
          <label>Enter the ID of Pokemon</label>
@@ -46,7 +46,21 @@
           </div>
         </div>
         <br/>
-        <input type="submit" value="Captured" class="btn btn-success"/>
+        <form method="get" action=""{{url('/captured')}}">
+          {{ csrf_field() }}
+          <input name="uname" type="hidden" value="{{Auth::user()->name}}">
+          <input name="uemail" type="hidden" value="{{Auth::user()->email}}">
+          <input name="pname" type="hidden" value="{{$row['name']}}">
+          <input name="ptypes" type="hidden" value="{{$row['types']}}">
+          <input name="pheight" type="hidden" value="{{$row['height']}}">
+          <input name="pweight" type="hidden" value="{{$row['weight']}}">
+          <input name="pabilities" type="hidden" value="{{$row['abilities']}}">
+          <input name="pegg" type="hidden" value="{{$row['egg_groups']}}">
+          <input name="pstats" type="hidden" value="{{$row['stats']}}">
+          <input name="pgenus" type="hidden" value="{{$row['genus']}}">
+          <input name="pdesc" type="hidden" value="{{$row['description']}}">
+         <input type="submit" value="Captured" class="btn btn-success"/>
+       </form>
         <br/>
         <br/>
         <br/>

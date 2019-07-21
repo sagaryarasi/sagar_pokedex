@@ -1,4 +1,4 @@
-@extends(master)
+@extends('master')
 
 @section('content')
 <div>
@@ -6,11 +6,12 @@
 </div>
 @if(isset(Auth::user()->email))
  <div class="alert alert-danger success-block">
-   <strong>Welcome {{Auth::user()->email}}</strong>
+   <strong>Welcome {{Auth::user()->name}}</strong>
    <br/>
    <a href="{{url('/main/logout')}}">Logout</a>
  </div>
-  else
+  @else
+
   <script>window.location="/main";</script>
 
 @endif

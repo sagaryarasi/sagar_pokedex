@@ -15,10 +15,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('pokemo', 'PokeaddController');
-Route::get('/main', 'MainController@index');
-Route::post('/main/checklogin', 'MainController@checklogin');
-Route::get('/main/successlogin', 'MainController@successlogin');
-Route::get('/main/logout', 'MainController@logout');
-Route::view('/register','register');
+// Route::get('/data', 'MainController@user_data');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/pokemo', 'PokeaddController@index');
+Route::get('/captured','CaptureController@capt');
+//Route::view('/home', 'pokemo.index');
+Route::resource('/capture', 'capture');
+//Route::post('/captured', 'CaptureController');
+//Route::resource('pokemo', 'PokeaddController');
+// Route::get('/main', 'MainController@index');
+// Route::post('/main/checklogin', 'MainController@checklogin');
+// Route::post('/login', 'MainController@index');
+// Route::get('/main/successlogin', 'MainController@successlogin');
+// Route::get('/main/logout', 'MainController@logout');
+// Route::view('/register','register');
+// Route::post('/store', 'MainController@store');
+//Route::view('/pokemo/create')
 Route::post('/pokemo/show','PokeaddController@showbyid');

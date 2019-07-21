@@ -14,7 +14,9 @@ class PokeaddController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $poke =Pokes::paginate(15);
+    {
+
+       $poke =Pokes::paginate(15);
         //$poke = Pokes::all()->paginate(15);
         return view('pokemo.index', compact('poke'));
     }
@@ -26,7 +28,7 @@ class PokeaddController extends Controller
      */
     public function create()
     {
-        return view('pokemo.create');
+      //  return view('pokemo.create');
     }
 
     /**
@@ -42,27 +44,27 @@ class PokeaddController extends Controller
           'types'      => 'required',
           'height'     => 'required',
           'weight'     => 'required',
-          'abilities'   => 'required',
-          'egg_group' => 'required',
+          'abilities'  => 'required',
+          'egg_group'  => 'required',
           'stats'      => 'required',
           'genus'      => 'required',
           'description'=> 'required'
         ]);
         $poke = new Pokes([
-            'name'      => $request->get('name'),
-            'types'      => $request->get('types'),
-            'height'      => $request->get('height'),
-            'weight'      => $request->get('weight'),
-            'abilities'      => $request->get('abilities'),
-            'egg_groups'      => $request->get('egg_group'),
-            'stats'      => $request->get('stats'),
-            'genus'      => $request->get('genus'),
-            'description'      => $request->get('description')
+            'name'         => $request->get('name'),
+            'types'        => $request->get('types'),
+            'height'       => $request->get('height'),
+            'weight'       => $request->get('weight'),
+            'abilities'    => $request->get('abilities'),
+            'egg_groups'   => $request->get('egg_group'),
+            'stats'        => $request->get('stats'),
+            'genus'        => $request->get('genus'),
+            'description'  => $request->get('description')
 
         ]);
 
         $poke->save();
-        return redirect()->route('pokemo.create')->with('success','Data Added');
+        return redirect()->route('pokemo.create')->with('success','Pokemon Added to the List');
     }
 
     /**
@@ -87,7 +89,7 @@ class PokeaddController extends Controller
       if($id<$tc){
         return view('pokemo.show', ['po' => Pokes::findOrFail($id)]);
       } else{
-        return back()->with('error','Invalid Pokemon ID. Please Try again.' );
+        return back()->with('error','Invalid Pokemon ID. Please Try again.'.$tc );
 
       }
 
