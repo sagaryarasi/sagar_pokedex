@@ -9,7 +9,7 @@ class PokemonController extends Controller
 {
     public function pokesapi()
     {
-     $pok = pokes::all();
+     $pok = pokes::paginate();
       return response()->json($pok);
     }
 
