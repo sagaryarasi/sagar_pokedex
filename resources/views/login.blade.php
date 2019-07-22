@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.app')
 @section('content')
 <h3 align="center">Trainer Login</h3>
 <br/>

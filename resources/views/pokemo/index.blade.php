@@ -1,10 +1,23 @@
-@extends('master')
+@extends('layouts/app')
 
 @section('content')
-   <div class="col-md-12">
+   <div class="col-md-12 poke">
      <br/>
      <h2 align="center" class="text-uppercase">List of All Pokemons</h2>
+     @if($message = Session::get('error'))
+     <div class="alert alert-danger alert-block">
 
+       <p>{{$message}}</p>
+     </div>
+     @endif
+
+     <br/>
+
+     @if(\Session::has('success'))
+       <div class="alert alert-success">
+         <p>{{\Session::get('success')}}</p>
+      </div>
+     @endif
 
      <form method="post" action="{{ url('pokemo/show') }}">
        {{ csrf_field() }}
@@ -18,20 +31,8 @@
          <input type="submit" name="find" class="btn btn-primary" value="Find"/>
        </div>
      </form>
-     @if($message = Session::get('error'))
-     <div class="alert alert-danger alert-block">
-       <button type="button" class="close" data-dismiss="alert">X</button>
-       <strong>{{$message}}</strong>
-     </div>
-     @endif
-     <br/>
 
-     @if(\Session::has('success'))
-       <div class="alert alert-success">
-         <p>{{\Session::get('success')}}</p>
-      </div>
-     @endif
-     
+
      @foreach($poke as $row)
         <h3><span>{{$row['id']}})</span> <b>{{$row['name']}}</b></h3>
         <br/>
@@ -54,7 +55,7 @@
         </div>
         <br/>
 
-         <form method="post" action="{{url('/captured')}}">
+         <form method="post" action="{{url('/capture')}}">
           {{ csrf_field() }}
           <input name="uname" type="hidden" value="{{Auth::user()->name}}">
           <input name="uemail" type="hidden" value="{{Auth::user()->email}}">
@@ -84,21 +85,3 @@
    <br/>
 
 @endsection
-
-<style lang="scss">
-   p{
-     font-size: 2rem;
-   }
-  .row{
-    background-color: #e5e5e5;
-    display: flex;
-    border: 1px solid gray;
-  }
-  .col-sm-4{
-    border-right: 1px solid gray;
-    padding: 2rem 1rem;
-  }
-  .pag{
-    text-align: center;
-  }
-</style>

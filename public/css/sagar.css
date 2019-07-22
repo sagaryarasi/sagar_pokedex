@@ -1,0 +1,48 @@
+
+  #app{
+    background: #fff!important;
+  }
+  .navbar-brand img{
+    width: 10rem;
+  }
+
+  input[type="submit"]{
+    border-radius: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+
+
+  ul.navbar-nav a,
+  ul.navbar-nav li,
+  .main-page .links-a{
+    font-weight: bold!important;
+    text-transform: uppercase;
+  }
+
+
+main .header{
+  height: 250px;
+  background: url('/assets/pokemon-header.jpg');
+  background-size: cover;
+  margin-bottom: 2rem;
+  background-position: center center;
+}
+
+p{
+  font-size: 1.2rem;
+}
+.poke .row{
+ background-color: #e5e5e5;
+ display: flex;
+ border: 1px solid gray;
+
+}
+.poke .col-sm-4{
+ border-right: 1px solid gray;
+ padding: 2rem 1rem;
+}
+.pag{
+ text-align: center;
+}

@@ -51,8 +51,8 @@
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
+                font-size: 1rem;
+                font-weight: bold;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
@@ -61,14 +61,17 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+          
         </style>
     </head>
     <body>
+      <div class="main-page">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <!-- <a href="{{ url('/home') }}">Home</a> -->
+                      <!-- <a href="{{ url('/home') }}">Home</a> -->
                     @else
                         <!-- <a href="{{ route('login') }}">Login</a> -->
 
@@ -81,16 +84,31 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                <img src="{{ URL::asset('/assets/pokemon.jpg') }}" />
-                    Pokemons
+
+                <img src="{{ URL::asset('/assets/pokedex.jpg') }}" />
+
                 </div>
 
                 <div class="links">
+                  @guest
                     <a href="{{ route('login') }}">Login</a>
                     <a href="{{ route('register') }}">Register</a>
-                  
+                    @else
+                    <a class="nav-link" href="/pokemo">Pokemons</a>
+                    <a class="nav-link" href="/pokemo/create">Add Pokemon?</a>
+                    <a class="nav-link" href="/captured">Captured Pokemons</a>
+                    <a href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                  @endguest
                 </div>
             </div>
         </div>
+      </div>
     </body>
 </html>

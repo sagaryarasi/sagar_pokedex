@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/pokemo', 'PokeaddController@index');
-Route::post('/captured','CapturesController@capt');
+Route::post('/capture','CapturesController@capt');
 //Route::view('/home', 'pokemo.index');
 //Route::resource('/capture', 'capture');
 //Route::post('/captured', 'CapturesController@capt');
@@ -35,3 +35,4 @@ Route::resource('pokemo', 'PokeaddController');
 // Route::post('/store', 'MainController@store');
 //Route::view('/pokemo/create');
 Route::post('/pokemo/show','PokeaddController@showbyid');
+Route::get('/captured', 'CapturesController@cap_poke');
